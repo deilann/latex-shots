@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage[explicit]{titlesec}
+\newenvironment{explanation}[1]
+    {
+\par\medskip\textbf{~#1:}\bigskip
+    \hrule
+    \rmfamily\medskip
+    }
+    {
+    \bigskip
+    \hrule
+    \medskip
+    }
+\begin{document}
+\begin{explanation}{Linear Combinations}
+    We can write $\begin{pmatrix} -13 \\ 3 \\ 4 \end{pmatrix}$ as a linear combination of $\begin{pmatrix} 3 \\ 1 \\ 0 \end{pmatrix}$ and $\begin{pmatrix} -5 \\ 2 \\ 2 \end{pmatrix}$:
+\end{explanation}
+\end{document}
