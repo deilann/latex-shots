@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage[explicit]{titlesec}
+\usepackage[table, dvipsnames]{xcolor}
+\usepackage{colortbl}
+\usepackage{asymptote}
+\newcounter{problem}[section]
+\newenvironment{problem}
+    {
+    \newpage
+    \refstepcounter{problem}\par\medskip\textbf{Problem \theproblem:}\medskip\rmfamily \newline
+    \rowcolors{1}{Yellow}{Yellow}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    \end{tabular}
+    }
+
+\newenvironment{solution}
+    {
+    \par\medskip\textbf{Worked Solution}\medskip\rmfamily\newline
+    \rowcolors{1}{CornflowerBlue}{CornflowerBlue}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    \end{tabular}
+    }
+
+
+
+\begin{document}
+
+% workaround for xcolor conflicts with bmatrix from https://tex.stackexchange.com/questions/520847/left-matrix-bracket-not-rendered-properly
+
+\newbox\matrixbox
+\sbox\matrixbox{\( \begin{pmatrix}
+-1 \\
+5 
+\end{pmatrix} \)}
+
+\newbox\matrixboxtwo
+\sbox\matrixboxtwo{\( \begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \)}
+
+\newbox\solmatrixone
+\sbox\solmatrixone{\(\begin{pmatrix}
+-1 + 1 \\
+5 + 0
+\end{pmatrix} \)}
+
+\newbox\solmatrixtwo
+\sbox\solmatrixtwo{\(\begin{pmatrix}
+0 \\
+5
+\end{pmatrix} \)}
+
+\newbox\solmatrixthree
+\sbox\solmatrixthree{\(\begin{pmatrix}
+-1 - 1 \\
+5 - 0
+\end{pmatrix} \)}
+
+\newbox\solmatrixfour
+\sbox\solmatrixfour{\(\begin{pmatrix}
+-2 \\
+5
+\end{pmatrix} \)}
+
+\begin{problem}
+    Plot $\mathbf{u} + \mathbf{v}$ and $\mathbf{u} - \mathbf{v}$ on an $(x, y)$ coordinate plane given
+
+    $$\mathbf{u} = \usebox\matrixbox \quad \mathbf{v} = \usebox\matrixboxtwo$$
+\end{problem}
+\begin{solution}
+First, we need to find $\mathbf{u} + \mathbf{v}$ and $\mathbf{u} - \mathbf{v}$.
+\medskip
+$$\mathbf{u} + \mathbf{v} = \usebox\matrixbox + \usebox\matrixboxtwo = \usebox\solmatrixone = \usebox\solmatrixtwo$$
+$$\mathbf{u} - \mathbf{v} = \usebox\matrixbox - \usebox\matrixboxtwo = \usebox\solmatrixthree = \usebox\solmatrixfour$$
+
+\medskip
+So the points we need to plot are $(0, 5)$ and $(-2, 5)$.
+\medskip
+\begin{center}
+\begin{asy}
+settings.outformat="pdf";
+defaultpen(fontsize(8pt));
+unitsize(.5cm);
+Label Lx= Label("$x$", position=EndPoint, align=Relative(E));
+Label Ly= Label("$y$", position=EndPoint, align=Relative(E));
+draw((-6,0) -- (6,0), arrow=Arrow(TeXHead), L=Lx);
+draw((0,-6) -- (0,6), arrow=Arrow(TeXHead), L=Ly);
+draw((1, -0.15) -- (1, 0.15), L= Label("1", position=BeginPoint));
+draw((-1, -0.15) -- (-1, 0.15), L= Label("-1", position=BeginPoint));
+draw((3, -0.15) -- (3, 0.15), L= Label("3", position=BeginPoint));
+draw((-3, -0.15) -- (-3, 0.15), L= Label("-3", position=BeginPoint));
+draw((5, -0.15) -- (5, 0.15), L= Label("5", position=BeginPoint));
+draw((-5, -0.15) -- (-5, 0.15), L= Label("-5", position=BeginPoint));
+draw((-0.15, 1) -- (.15, 1), L= Label("1", position=BeginPoint));
+draw((-0.15, -1) -- (.15, -1), L= Label("-1", position=BeginPoint));
+draw((-0.15, 3) -- (.15, 3), L= Label("3", position=BeginPoint));
+draw((-0.15, -3) -- (.15, -3), L= Label("-3", position=BeginPoint));
+draw((-0.15, 5) -- (.15, 5), L= Label("5", position=BeginPoint));
+draw((-0.15, -5) -- (.15, -5), L= Label("-5", position=BeginPoint));
+pen pointsPen = 5+black;
+dot((0, 5), pointsPen);
+dot((-2, 5), pointsPen);
+\end{asy}
+\end{center}
+\end{solution}
+
+\end{document}
