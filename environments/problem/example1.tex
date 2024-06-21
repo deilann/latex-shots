@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage[explicit]{titlesec}
+\usepackage[table, dvipsnames]{xcolor}
+\newcounter{problem}[section]
+\newenvironment{problem}
+    {
+    \newpage
+    \refstepcounter{problem}\par\medskip\textbf{Problem \theproblem:}\medskip\rmfamily \newline
+    \rowcolors{1}{Yellow}{Yellow}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    \end{tabular}
+    }
+\begin{document}
+
+\newbox\matrixbox
+\sbox\matrixbox{\( \begin{bmatrix}
+2 \\
+2 \\
+2 \\
+\end{bmatrix} \)}
+
+\newbox\matrixboxtwo
+\sbox\matrixboxtwo{\( \begin{bmatrix}
+3 \\
+1 \\
+1 \\
+\end{bmatrix} \)}
+\begin{problem}
+    Provide a geometric representation of all linear combinations of
+    $$\usebox\matrixbox \text{ and } \usebox\matrixboxtwo.$$
+    
+\end{problem}
+\end{document}
