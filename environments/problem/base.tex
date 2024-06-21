@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage[explicit]{titlesec}
+\usepackage[table, dvipsnames]{xcolor}
+\newcounter{problem}[section]
+\newenvironment{problem}
+    {
+    \newpage
+    \refstepcounter{problem}\par\medskip\textbf{Problem \theproblem:}\medskip\rmfamily \newline
+    \rowcolors{1}{Yellow}{Yellow}
+    \begin{tabular}{|p{0.9\textwidth}|}
+    \hline\\
+    }
+    { 
+    \\\\\hline
+    \end{tabular}
+    }
+\begin{document}
+\end{document}
