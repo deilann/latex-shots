@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage{asymptote}
+\begin{document}
+% when i want to avoid import graph;
+\begin{asy}
+settings.outformat="pdf";
+defaultpen(fontsize(8pt));
+unitsize(.5cm);
+Label Lx= Label("$x$", position=EndPoint, align=Relative(E));
+Label Ly= Label("$y$", position=EndPoint, align=Relative(E));
+draw((-6,0) -- (6,0), arrow=Arrow(TeXHead), L=Lx);
+draw((0,-6) -- (0,6), arrow=Arrow(TeXHead), L=Ly);
+draw((1, -0.15) -- (1, 0.15), L= Label("1", position=BeginPoint));
+draw((-1, -0.15) -- (-1, 0.15), L= Label("-1", position=BeginPoint));
+draw((3, -0.15) -- (3, 0.15), L= Label("3", position=BeginPoint));
+draw((-3, -0.15) -- (-3, 0.15), L= Label("-3", position=BeginPoint));
+draw((5, -0.15) -- (5, 0.15), L= Label("5", position=BeginPoint));
+draw((-5, -0.15) -- (-5, 0.15), L= Label("-5", position=BeginPoint));
+draw((-0.15, 1) -- (.15, 1), L= Label("1", position=BeginPoint));
+draw((-0.15, -1) -- (.15, -1), L= Label("-1", position=BeginPoint));
+draw((-0.15, 3) -- (.15, 3), L= Label("3", position=BeginPoint));
+draw((-0.15, -3) -- (.15, -3), L= Label("-3", position=BeginPoint));
+draw((-0.15, 5) -- (.15, 5), L= Label("5", position=BeginPoint));
+draw((-0.15, -5) -- (.15, -5), L= Label("-5", position=BeginPoint));
+\end{asy}
+\end{document}
