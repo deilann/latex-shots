@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage{asymptote}
+
+% logic spacing
+\newcommand{\spaced}[1]{\, #1 \,}
+\newcommand{\scomp}{\spaced{\backslash}}
+\newcommand{\sland}{\spaced{\land}}
+\newcommand{\slor}{\spaced{\lor}}
+\newcommand{\simplies}{\spaced{\Rightarrow}}
+\newcommand{\slexists}{\, \exists}
+
+\begin{document}
+\begin{center}
+
+\section*{generic operator}
+spaced $A \spaced{\cdot} B$ \qquad unspaced $A \cdot B$
+
+\section*{set composition}
+spaced $A \scomp B$ \qquad unspaced $A \backslash B$
+
+\section*{logical and}
+spaced $A \sland B$ \qquad unspaced $A \land B$
+
+\section*{logical or}
+spaced $A \slor B$ \qquad unspaced $A \lor B$
+
+\section*{implies}
+spaced $A \simplies B$ \qquad unspaced $A \Rightarrow B$
+
+\section*{exists (left spacing)}
+spaced $\land \slexists b \in B$ \qquad unspaced $\land \exists b \in B$
+
+\end{center}
+\end{document}
