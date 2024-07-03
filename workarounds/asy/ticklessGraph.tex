@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+\usepackage{mathtools}
+\usepackage{asymptote}
+\begin{document}
+% basic no tick graph
+\begin{asy}
+    settings.outformat="pdf";
+    unitsize(1cm);
+    draw((0,0) -- (2,0), arrow=Arrow(TeXHead));
+    draw((0,0) -- (-2,0), arrow=Arrow(TeXHead));
+    draw((0,0) -- (0,-2), arrow=Arrow(TeXHead));
+    draw((0,0) -- (0,2), arrow=Arrow(TeXHead));
+    draw(unitcircle);
+\end{asy}
+\end{document}
