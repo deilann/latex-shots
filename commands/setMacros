@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{amsmath, amsfonts}
+\usepackage{mathtools}
+\usepackage{parskip}
+\usepackage{asymptote}
+
+% logical spacing
+\newcommand{\spaced}[1]{\, #1 \,}
+
+% set macros
+\newcommand{\buildset}[2]{\{\spaced{#1} \mid \spaced{#2} \}}
+\newcommand{\finiteset}[3]{\{ \spaced{#1,} \spaced{#2,} \spaced{#3,} \spaced{\dots} \}}
+
+\begin{document}
+\begin{center}
+
+\verb|\buildset{x \in \mathbb{R}}{x^2}|
+$$\buildset{x \in \mathbb{R}}{x^2}$$
+
+\verb|\finiteset{1}{2}{3}|
+$$\finiteset{1}{2}{3}$$
+
+\end{center}
+\end{document}
